@@ -11,6 +11,18 @@ const TokenBucket = require('./algorithms/tokenBucket');
 const app = express();
 app.use(express.json());
 
+// this handles cross-origin requests from frontend (e.g. Firebase Hosting)
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Expose-Headers', 'X-RateLimit-Remaining, X-RateLimit-Algorithm, Retry-After');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+  next();
+});
+
 // this is for reading client ip properly
 app.set('trust proxy', 1);
 

@@ -3,8 +3,10 @@
 (() => {
   'use strict';
 
-  // this is backend api url
-  const API = '';
+  // this is backend api url (uses relative path on localhost, points to local gateway on Firebase)
+  const API = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? ''
+    : 'http://localhost:3000';
 
   // this is for selecting html elements
   const $ = (sel) => document.querySelector(sel);
