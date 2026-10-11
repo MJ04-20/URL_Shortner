@@ -1,0 +1,15 @@
+{
+  "hosting": {
+    "public": "frontend",
+    "ignore": ["firebase.json", "**/.*"],
+    "rewrites": [],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache" }
+        ]
+      }
+    ]
+  }
+}

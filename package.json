@@ -1,0 +1,17 @@
+{
+  "name": "url-shortener-mini-project",
+  "version": "1.0.0",
+  "description": "URL Shortener with Algorithm-Based Load Balancing and Rate Limiting — Algorithms II Mini Project",
+  "main": "backend/gateway.js",
+  "scripts": {
+    "dev": "node start.js",
+    "test": "node --test backend/tests/loadBalancer.test.js backend/tests/rateLimiter.test.js backend/tests/urlService.test.js",
+    "start:gateway": "node backend/gateway.js",
+    "start:server": "node backend/servers/server.js"
+  },
+  "keywords": ["url-shortener", "load-balancing", "rate-limiting", "algorithms"],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

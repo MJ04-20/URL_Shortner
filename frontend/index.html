@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="URL Shortener with Algorithm-Based Load Balancing and Rate Limiting — Algorithms II Mini Project">
+  <title>URL Shortener — Algorithms II Mini Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🔗 URL Shortener</h1>
+    <p class="subtitle">Algorithm-Based Load Balancing &amp; Rate Limiting</p>
+  </header>
+
+  <main>
+    <!-- ─── Section A: URL Shortener ──────────────────────────── -->
+    <section class="card" id="section-shortener">
+      <h2>Section A — URL Shortener</h2>
+      <div class="shortener-form">
+        <input type="url" id="url-input" placeholder="https://example.com/long-url" autocomplete="off">
+        <button id="btn-shorten">Shorten</button>
+      </div>
+      <div id="shorten-result" class="result hidden">
+        <span id="short-url-text"></span>
+        <button id="btn-copy" title="Copy to clipboard">📋 Copy</button>
+      </div>
+      <div id="shorten-message" class="message hidden"></div>
+    </section>
+
+    <!-- ─── Section B: Load Balancer ──────────────────────────── -->
+    <section class="card" id="section-load-balancer">
+      <h2>Section B — Load Balancer</h2>
+      <div class="controls-row">
+        <label for="lb-algorithm">Algorithm:</label>
+        <select id="lb-algorithm">
+          <option value="round-robin">Round Robin</option>
+          <option value="least-active">Least Active Requests</option>
+        </select>
+      </div>
+      <div class="server-cards" id="server-cards">
+        <!-- Filled by JS -->
+      </div>
+    </section>
+
+    <!-- ─── Section C: Rate Limiter ───────────────────────────── -->
+    <section class="card" id="section-rate-limiter">
+      <h2>Section C — Rate Limiter</h2>
+      <div class="controls-row">
+        <label for="rl-algorithm">Algorithm:</label>
+        <select id="rl-algorithm">
+          <option value="fixed-window">Fixed Window Counter</option>
+          <option value="token-bucket">Token Bucket</option>
+        </select>
+      </div>
+      <div class="rate-limit-info" id="rate-limit-info">
+        <!-- Filled by JS -->
+      </div>
+    </section>
+
+    <!-- ─── Section D: Demo Controls ──────────────────────────── -->
+    <section class="card" id="section-demo">
+      <h2>Section D — Demonstration Controls</h2>
+      <div class="demo-buttons">
+        <button id="btn-send-1" class="btn-demo">Send 1 Request</button>
+        <button id="btn-send-10" class="btn-demo">Send 10 Requests</button>
+        <button id="btn-send-50" class="btn-demo">Send 50 Requests</button>
+        <button id="btn-start-load" class="btn-demo btn-start">▶ Start Concurrent Load</button>
+        <button id="btn-stop-load" class="btn-demo btn-stop" disabled>■ Stop</button>
+        <button id="btn-reset" class="btn-demo btn-reset">↻ Reset Statistics</button>
+      </div>
+      <div id="demo-log" class="demo-log">
+        <div class="log-header">Request Log</div>
+        <div id="log-entries" class="log-entries"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Algorithms II Mini Project — Data resets when the server restarts.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
